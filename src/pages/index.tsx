@@ -9,13 +9,14 @@ const index = () => {
 
   const [id, setId] = useState(null);
   const [downloadPageLink, setDownloadPageLink] = useState(null);
-
+  const [uploadState, setUploadState] = useState("Upload");
   const resetComponent = () => {
     setFiles(null);
     setDownloadPageLink(null);
   };
 
   const handleUpload = async () => {
+    setUploadState("Uploading");
     const formData = new FormData();
 
     formData.append("myFile", files[0]);
@@ -30,6 +31,7 @@ const index = () => {
       setId(data.id);
     } catch (error) {
       console.log(error);
+      setUploadState("Upload Failed");
     }
   };
 
@@ -38,22 +40,22 @@ const index = () => {
       {!downloadPageLink && <DropzoneComponent setFiles={setFiles} />}
 
       {/* show files */}
-      {/* <renderFiles files={files} /> */}
+      {/* <renderFiles/> */}
 
       {/* //upload button */}
       {files?.length > 0 && !downloadPageLink && (
         <button className="button" onClick={handleUpload}>
-          Upload
+          {uploadState}
         </button>
       )}
       {/* // copy link */}
       {downloadPageLink && (
-        <div>
+        <div className="p-2 text-center">
           <DownloadFile downloadPageLink={downloadPageLink} />
 
           <EmailForm id={id} />
 
-          <button onClick={resetComponent} className="button">
+          <button onClick={resetComponent} className=" button w-44">
             Upload new File
           </button>
         </div>

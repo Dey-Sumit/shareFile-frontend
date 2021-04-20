@@ -27,9 +27,7 @@ const download = ({ file: { id, filename, size } }) => {
         {id && (
           <>
             <img src="/images/file-download.png" alt="" className="w-16 h-16" />
-            <h1 className="text-xl font-semibold">
-              Your file is ready to download
-            </h1>
+            <h1 className="text-xl">Your file is ready to download</h1>
             <div className="flex items-center p-2 space-y-3 ">
               <img
                 src={`/images/${filename.split(".")[1]}.png`}

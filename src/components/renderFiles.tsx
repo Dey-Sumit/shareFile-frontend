@@ -5,7 +5,7 @@ interface file {
   type: string;
   size: number;
 }
-const RenderFiles: FunctionComponent<{ files: file[] }> = ({ files }) => {
+const renderFiles: FunctionComponent<{ files: file[] }> = ({ files }) => {
   return (
     <div className="flex flex-col">
       {files?.map((file) => (
@@ -23,4 +23,4 @@ const RenderFiles: FunctionComponent<{ files: file[] }> = ({ files }) => {
   );
 };
 
-export default RenderFiles;
+export default renderFiles;
