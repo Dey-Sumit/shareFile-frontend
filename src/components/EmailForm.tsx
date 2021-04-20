@@ -11,7 +11,7 @@ const EmailForm: FunctionComponent<{ id: string }> = ({ id }) => {
     try {
       const { data } = await axios({
         method: "post",
-        url: `${process.env.NEXT_PUBLIC_BASE_ENDPOINT_SERVER}/api/files/email`,
+        url: `${process.env.NEXT_PUBLIC_BASE_ENDPOINT_SERVER}api/files/email`,
         data: { id, emailFrom, emailTo },
       });
       setMessage(data.message);
