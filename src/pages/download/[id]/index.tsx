@@ -51,7 +51,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 
   try {
     const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_BASE_ENDPOINT_SERVER}/api/files/${id}`
+      `${process.env.NEXT_PUBLIC_BASE_ENDPOINT_SERVER}api/files/${id}`
     );
 
     return {
