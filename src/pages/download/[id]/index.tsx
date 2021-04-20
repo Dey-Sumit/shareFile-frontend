@@ -3,6 +3,7 @@ import { GetServerSidePropsContext } from "next";
 import { sizeInMB } from "../../../utils/sizeInMb";
 import fileDownload from "js-file-download";
 
+// add typescript
 const download = ({ file: { id, filename, size } }) => {
   const handleDownload = async () => {
     const { data } = await axios(
@@ -30,7 +31,7 @@ const download = ({ file: { id, filename, size } }) => {
             <h1 className="text-xl">Your file is ready to download</h1>
             <div className="flex items-center p-2 space-y-3 ">
               <img
-                src={`/images/${filename.split(".")[1]}.png`}
+                src={`/images/${filename.split(".")[1].toLowerCase()}.png`}
                 alt={filename}
                 className="w-14 h-14"
               />
