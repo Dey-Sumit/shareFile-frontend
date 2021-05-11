@@ -5,13 +5,12 @@ const EmailForm: FunctionComponent<{ id: string }> = ({ id }) => {
   const [emailFrom, setEmailFrom] = useState("");
   const [emailTo, setEmailTo] = useState("");
   const [message, setMessage] = useState(null);
-
   const handleEmail = async (e: any) => {
     e.preventDefault();
     try {
       const { data } = await axios({
         method: "post",
-        url: `${process.env.NEXT_PUBLIC_BASE_ENDPOINT_SERVER}api/files/email`,
+        url: "api/files/email", // TODO
         data: { id, emailFrom, emailTo },
       });
       setMessage(data.message);
@@ -30,7 +29,7 @@ const EmailForm: FunctionComponent<{ id: string }> = ({ id }) => {
       >
         <input
           type="email"
-          className="p-1 text-black border-2 border-yellow-light"
+          className="p-1 text-white bg-gray-800 border-2 focus:outline-none"
           placeholder="Email From"
           value={emailFrom}
           onChange={(e) => setEmailFrom(e.target.value)}
@@ -39,15 +38,12 @@ const EmailForm: FunctionComponent<{ id: string }> = ({ id }) => {
         <input
           placeholder="Email To"
           type="email"
-          className="p-1 text-black border-2 border-yellow-light"
+          className="p-1 text-white bg-gray-800 border-2 focus:outline-none"
           value={emailTo}
           onChange={(e) => setEmailTo(e.target.value)}
           required
         />
-        <button
-          className="w-32 p-1 mx-auto my-5 font-medium tracking-wide text-white rounded-md focus:outline-none bg-yellow-light border-yellow-light"
-          type="submit"
-        >
+        <button className="w-32 button" type="submit">
           Email
         </button>
       </form>

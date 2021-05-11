@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
 import { sizeInMB } from "../utils/sizeInMb";
-interface file {
+interface IFile {
   name: string;
   type: string;
   size: number;
 }
-const renderFiles: FunctionComponent<{ files: file[] }> = ({ files }) => {
+const RenderFiles: FunctionComponent<{ files: IFile[] }> = ({ files }) => {
   return (
     <div className="flex flex-col">
       {files?.map((file) => (
@@ -23,4 +23,4 @@ const renderFiles: FunctionComponent<{ files: file[] }> = ({ files }) => {
   );
 };
 
-export default renderFiles;
+export default RenderFiles;

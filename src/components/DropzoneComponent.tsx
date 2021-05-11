@@ -18,7 +18,6 @@ function DropzoneComponent({ setFiles }) {
     accept: "image/jpeg, image/png,application/pdf,audio/mpeg",
     multiple: false,
   });
-  // console.log({ isDragActive, isDragAccept, isDragReject });
 
   return (
     <div className="flex flex-col w-full p-4">
@@ -29,17 +28,24 @@ function DropzoneComponent({ setFiles }) {
         <input {...getInputProps()} />
         <div
           className={
-            "rounded-xl w-full p-2 border-2 border-dashed border-yellow-light h-full flex bg-gray-50 flex-col justify-center items-center " +
-            (isDragReject === true ? "bg-red-300 " : " ") +
-            (isDragAccept === true ? "bg-green-300 " : " ")
+            "border-yellow-light flex-col flex bg-gray-800  justify-center items-center h-full rounded-xl border-2 border-dashed p-2 space-y-3 " +
+            (isDragReject === true ? "border-red-500 " : " ") +
+            (isDragAccept === true ? "border-green-500 " : " ")
           }
         >
-          <img src="/folder.png" alt="folder" className="w-16 h-16" />
-          <p className="my-2 text-center">
-            {isDragReject === true
-              ? "Sorry , this app only support images , pdf and mp3"
-              : " Drag and Drop the file here"}
-          </p>
+          <img src="folder.png" alt="folder" className="w-16 h-16" />
+          <div className="text-lg text-center">
+            {isDragReject === true ? (
+              <p>Sorry , this app only support images , pdf and mp3"</p>
+            ) : (
+              <div>
+                <p>Drag and Drop the file here</p>
+                <p className="mt-2 text-base text-gray-300">
+                  Only jpeg , png , mp3 & pdf files supported
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ const DownloadFile = ({ downloadPageLink }) => {
         Great! File is uploaded , Share this link with your friend
       </h3>
 
-      <div className="flex space-x-3 text-gray-900">
+      <div className="flex space-x-3">
         <span className="break-all">{downloadPageLink}</span>
         <img
           onClick={() => {

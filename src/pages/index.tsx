@@ -3,6 +3,7 @@ import { useState } from "react";
 import DownloadFile from "../components/DownloadFile";
 import DropzoneComponent from "../components/DropzoneComponent";
 import EmailForm from "../components/EmailForm";
+import RenderFiles from "../components/RenderFiles";
 //TODO change render file name
 const index = () => {
   const [files, setFiles] = useState(null);
@@ -36,30 +37,34 @@ const index = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center shadow-2xl bg-gray-50 w-96 rounded-xl">
-      {!downloadPageLink && <DropzoneComponent setFiles={setFiles} />}
+    <div className="flex flex-col items-center justify-center ">
+      <h1 className="my-4 text-3xl font-medium">
+        Got a file? Share it like fake news
+      </h1>
+      <div className="flex flex-col items-center justify-center bg-gray-800 shadow-2xl w-96 rounded-xl">
+        {!downloadPageLink && <DropzoneComponent setFiles={setFiles} />}
 
-      {/* show files */}
-      {/* <renderFiles/> */}
+        {/* show files */}
+        <RenderFiles files={files} />
 
-      {/* //upload button */}
-      {files?.length > 0 && !downloadPageLink && (
-        <button className="button" onClick={handleUpload}>
-          {uploadState}
-        </button>
-      )}
-      {/* // copy link */}
-      {downloadPageLink && (
-        <div className="p-2 text-center">
-          <DownloadFile downloadPageLink={downloadPageLink} />
-
-          <EmailForm id={id} />
-
-          <button onClick={resetComponent} className=" button w-44">
-            Upload new File
+        {/* //upload button */}
+        {files?.length > 0 && !downloadPageLink && (
+          <button className="button" onClick={handleUpload}>
+            {uploadState}
           </button>
-        </div>
-      )}
+        )}
+        {/* // copy link */}
+        {downloadPageLink && (
+          <div className="p-2 text-center">
+            <DownloadFile downloadPageLink={downloadPageLink} />
+            <EmailForm id={id} />
+
+            <button onClick={resetComponent} className=" button w-44">
+              Upload new File
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
