@@ -3,7 +3,7 @@ import { useState } from "react";
 import DownloadFile from "../components/DownloadFile";
 import DropzoneComponent from "../components/DropzoneComponent";
 import EmailForm from "../components/EmailForm";
-import RenderFiles from "../components/RenderFile";
+import RenderFile from "../components/RenderFile";
 //TODO change render file name
 const index = () => {
   const [files, setFiles] = useState(null);
@@ -45,7 +45,7 @@ const index = () => {
         {!downloadPageLink && <DropzoneComponent setFiles={setFiles} />}
 
         {/* show files */}
-        <RenderFiles files={files} />
+        <RenderFile files={files} />
 
         {/* //upload button */}
         {files?.length > 0 && !downloadPageLink && (
