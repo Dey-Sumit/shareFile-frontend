@@ -3,8 +3,14 @@ import { useState } from "react";
 import DownloadFile from "../components/DownloadFile";
 import DropzoneComponent from "../components/DropzoneComponent";
 import EmailForm from "../components/EmailForm";
-import RenderFile from "../components/RenderFile";
+import { sizeInMB } from "../utils/sizeInMb";
 //TODO change render file name
+interface IFile {
+  name: string;
+  type: string;
+  size: number;
+}
+
 const index = () => {
   const [files, setFiles] = useState(null);
 
@@ -45,8 +51,20 @@ const index = () => {
         {!downloadPageLink && <DropzoneComponent setFiles={setFiles} />}
 
         {/* show files */}
-        <RenderFile files={files} />
-
+        {/* <RenderFile files={files} /> */}
+        <div className="flex flex-col">
+          {files?.map((file) => (
+            <div key={file.name} className="flex items-center w-full my-2 ">
+              <img
+                src={`images/${file.type.split("/")[1]}.png`}
+                alt={`${file.type.split("/")[1]}.png`}
+                className="w-14 h-14"
+              />
+              <span className="mx-2">{file.name}</span>
+              <span className="ml-auto ">{`${sizeInMB(file.size)} MB`}</span>
+            </div>
+          ))}
+        </div>
         {/* //upload button */}
         {files?.length > 0 && !downloadPageLink && (
           <button className="button" onClick={handleUpload}>
