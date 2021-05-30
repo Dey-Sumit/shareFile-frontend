@@ -3,7 +3,7 @@ import { useState } from "react";
 import DownloadFile from "../components/DownloadFile";
 import DropzoneComponent from "../components/DropzoneComponent";
 import EmailForm from "../components/EmailForm";
-import RenderFiles from "../components/RenderFiles";
+import RenderFiles from "../components/RenderFile";
 //TODO change render file name
 const index = () => {
   const [files, setFiles] = useState(null);
