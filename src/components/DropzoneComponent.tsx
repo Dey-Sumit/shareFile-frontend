@@ -41,7 +41,7 @@ function DropzoneComponent({ setFiles }) {
               <div>
                 <p>Drag and Drop the file here</p>
                 <p className="mt-2 text-base text-gray-300">
-                  Only jpeg , png , mp3 & pdf files supported
+                  Only jpeg , png & mp3 files supported
                 </p>
               </div>
             )}
