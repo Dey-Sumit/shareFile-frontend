@@ -3,7 +3,7 @@
 ### MERN Stack Project made with MERN stack to share file(s)
 #### This repo contains the FrontEnd
 
-![](https://i.ytimg.com/vi/k7r2XNquxMA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDJM0zLVqDZlqpQ85RBLObyTZ7Rog)
+![](https://i.ytimg.com/vi/k7r2XNquxMA/hq720.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDJM0zLVqDZlqpQ85RBLObyTZ7Rog)
 
 ## Installation
 
